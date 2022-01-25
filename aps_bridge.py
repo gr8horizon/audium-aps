@@ -6,6 +6,7 @@ from pythonosc.osc_server import ThreadingOSCUDPServer
 from pythonosc.osc_server import BlockingOSCUDPServer
 from pythonosc.dispatcher import Dispatcher
 import threading
+# Requires: python-osc
 
 def APS_handler(address, *args):
 
