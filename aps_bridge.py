@@ -14,6 +14,10 @@ def APS_handler(address, *args):
 
 	if args[0] == "who":
 		client.send_message("/APS", myAPS_ID)
+		
+	else if args[0] == "reboot":
+		client.send_message("/APS" + myAPS_ID, "rebooting")
+		os.system("sudo reboot")
 	#os.system("vlc Videos/Waterfall.mp4")
 
 
