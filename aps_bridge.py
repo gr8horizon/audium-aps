@@ -15,11 +15,11 @@ def APS_handler(address, *args):
 	if args[0] == "who":
 		client.send_message("/APS", myAPS_ID)
 
-	else if args[0] == "reboot":
+	elif args[0] == "reboot":
 		client.send_message("/APS" + myAPS_ID, "rebooting")
 		os.system("sudo reboot")
 
-	else if args[0] == "pull":
+	elif args[0] == "pull":
 		os.system("git pull --git-dir=~/audium-aps/")
 		os.system("sudo systemctl restart aps.service")
 	#os.system("vlc Videos/Waterfall.mp4")
