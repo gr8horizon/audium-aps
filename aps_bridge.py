@@ -20,7 +20,7 @@ def APS_handler(address, *args):
 		os.system("sudo reboot")
 
 	else if args[0] == "pull":
-		os.system("git pull")
+		os.system("git pull --git-dir=~/audium-aps/")
 		os.system("sudo systemctl restart aps.service")
 	#os.system("vlc Videos/Waterfall.mp4")
 
