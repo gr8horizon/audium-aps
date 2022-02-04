@@ -27,22 +27,9 @@ def APS_handler(address, *args):
 
 def APS_play_handler(address, *args):
 
-	print("OSC APS Plau Message Received: " + str(args[0]))
-
-	if args[0] == "who":
-		client.send_message("/APS", myAPS_ID)
-
-	elif args[0] == "reboot":
-		os.system("sudo reboot")
-		client.send_message("/APS/" + myAPS_ID, "rebooting")
-
-	elif args[0] == "pull":
-		os.system("git -C ~/audium-aps pull")
-		os.system("sudo systemctl restart aps.service")
-		client.send_message("/APS/" + myAPS_ID, "pulled")
-	elif args[0] == "play":
-		client.send_message("/APS/play", args[0])
-		os.system("vlc --loop --no-title Videos/" + args[0])
+	print("OSC APS Play Message Received: " + str(args[0]))
+	client.send_message("/APS/play", args[0])
+	os.system("vlc --loop --no-title Videos/" + args[0])
 
 
 if __name__ == '__main__':
