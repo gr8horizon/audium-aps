@@ -23,6 +23,23 @@ def APS_handler(address, *args):
 		os.system("git -C ~/audium-aps pull")
 		os.system("sudo systemctl restart aps.service")
 		client.send_message("/APS/" + myAPS_ID, "pulled")
+
+def APS_play_handler(address, *args):
+
+	print("OSC APS Plau Message Received: " + str(args[0]))
+
+	if args[0] == "who":
+		client.send_message("/APS", myAPS_ID)
+
+	elif args[0] == "reboot":
+		os.system("sudo reboot")
+		client.send_message("/APS/" + myAPS_ID, "rebooting")
+
+	elif args[0] == "pull":
+		os.system("git -C ~/audium-aps pull")
+		os.system("sudo systemctl restart aps.service")
+		client.send_message("/APS/" + myAPS_ID, "pulled")
+	elif args[0] == "play":
 		
 	#os.system("vlc Videos/Waterfall.mp4")
 
@@ -38,6 +55,7 @@ strip('\n'))
 
 	dispatcher = Dispatcher()
 	dispatcher.map("/APS", APS_handler)
+	dispatcher.map("/APS/play", APS_play_handler)
 	dispatcher.set_default_handler(print)
 
 	#server_port_QLAB = 2020
