@@ -41,8 +41,8 @@ def APS_play_handler(address, *args):
 		os.system("sudo systemctl restart aps.service")
 		client.send_message("/APS/" + myAPS_ID, "pulled")
 	elif args[0] == "play":
-		
-	#os.system("vlc Videos/Waterfall.mp4")
+		client.send_message("/APS/play", args[0])
+		os.system("vlc --loop --no-title Videos/" + args[0])
 
 
 if __name__ == '__main__':
