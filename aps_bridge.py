@@ -54,5 +54,5 @@ strip('\n'))
 	client = SimpleUDPClient("192.168.42.255", 1234)
 	client._sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
-	server = BlockingOSCUDPServer((localip, 2020), dispatcher)
+	server = ThreadingOSCUDPServer((localip, 2020), dispatcher)
 	server.serve_forever()
