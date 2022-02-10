@@ -47,8 +47,8 @@ def APS_play_handler(address, *args):
 def APS_kill_handler(address, *args):
 
 	print("OSC APS Kill Message Received. ")
-	client.send_message("killed")
-	os.system("pkill vlc")
+	client.send_message("/APS/" + myAPS_ID)
+	os.system("killall vlc")
 
 
 if __name__ == '__main__':
