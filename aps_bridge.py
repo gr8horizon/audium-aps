@@ -18,7 +18,8 @@ def APS_handler(address, *args):
 	elif args[0] == "reboot":
 		client.send_message("/APS/" + myAPS_ID, "rebooting")
 		os.system("sudo reboot")
-		
+	elif args[0] == "version":
+		client.send_message("")
 
 	elif args[0] == "pull":
 		client.send_message("/APS/" + myAPS_ID, "pulled")
@@ -35,10 +36,11 @@ def APS_play_handler(address, *args):
 	# TODO:
 	# if args contains 43, add "--aspect-ratio 43 "
 	# if args contains noloop, don't add "--loop "
-	if args[1] == "43":
-		os.system("vlc -I dummy --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
-	elif args[1] == "noloop":
-		os.system("vlc -I dummy --no-video-title ~/Videos/" + args[0])
+	if len(args) > 1:
+		if args[1] == "43":
+			os.system("vlc -I dummy --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
+		elif args[1] == "noloop":
+			os.system("vlc -I dummy --no-video-title ~/Videos/" + args[0])
 	else:
 		os.system("vlc -I dummy --loop --no-video-title ~/Videos/" + args[0])
 
