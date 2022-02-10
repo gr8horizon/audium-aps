@@ -29,7 +29,7 @@ def APS_play_handler(address, *args):
 
 	print("OSC APS Play Message Received: " + str(args[0]))
 	client.send_message("/APS/play", args[0])
-	os.system("killall vlc" + args[0])
+	os.system("killall vlc")
 	if args[1] == "43":
 		os.system("vlc -I dummy --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
 	else:
