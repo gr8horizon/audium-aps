@@ -29,7 +29,14 @@ def APS_play_handler(address, *args):
 
 	print("OSC APS Play Message Received: " + str(args[0]))
 	client.send_message("/APS/play", args[0])
+	os.system("pkill vlc" + args[0])
 	os.system("vlc -I dummy --loop --no-video-title ~/Videos/" + args[0])
+
+def APS_kill_handler(address, *args):
+
+	print("OSC APS Kill Message Received: " + str(args[0]))
+	client.send_message("/APS/kill", args[0])
+	os.system("pkill vlc" + args[0])
 
 
 if __name__ == '__main__':
@@ -44,6 +51,7 @@ strip('\n'))
 	dispatcher = Dispatcher()
 	dispatcher.map("/APS", APS_handler)
 	dispatcher.map("/APS/play", APS_play_handler)
+	dispatcher.map("/APS/kill", APS_kill_handler)
 	dispatcher.set_default_handler(print)
 
 	#server_port_QLAB = 2020
