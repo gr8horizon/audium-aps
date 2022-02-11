@@ -37,18 +37,24 @@ def APS_play_handler(address, *args):
 	# if args contains 43, add "--aspect-ratio 43 "
 	# if args contains noloop, don't add "--loop "
 
+	if not os.path.exists('~/Videos/' + args[0]):
+		return
+
 	# try this and hope killall doesn't take too much time, preventing
 	vlc_running = os.system('pidof vlc')
 	if vlc_running != 256:
 		os.system('killall vlc')
+		time.sleep(0.1)
+
+
 
 	if len(args) > 1:
 		if args[1] == 43:
-			os.system("vlc -I dummy --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
+			os.system("vlc -I http --http-password=22 --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
 		elif args[1] == "noloop":
-			os.system("vlc -I dummy --no-video-title ~/Videos/" + args[0])
+			os.system("vlc -I http --http-password=22 --no-video-title ~/Videos/" + args[0])
 	else:
-		os.system("vlc -I dummy --loop --no-video-title ~/Videos/" + args[0])
+		os.system("vlc -I http --http-password=22 --loop --no-video-title ~/Videos/" + args[0])
 
 def APS_kill_handler(address, *args):
 
