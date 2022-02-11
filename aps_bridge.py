@@ -37,8 +37,8 @@ def APS_play_handler(address, *args):
 	# if args contains 43, add "--aspect-ratio 43 "
 	# if args contains noloop, don't add "--loop "
 
-	if not os.path.exists('~/Videos/' + args[0]):
-		return
+	#if not os.path.exists('~/Videos/' + args[0]):
+		#return
 
 	# try this and hope killall doesn't take too much time, preventing
 	vlc_running = os.system('pidof vlc')
