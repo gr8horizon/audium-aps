@@ -18,7 +18,8 @@ def APS_handler(address, *args):
 	elif args[0] == "reboot":
 		client.send_message("/APS/" + myAPS_ID, "rebooting")
 		os.system("sudo reboot")
-		
+	elif args[0] == "version":
+		client.send_message("")
 
 	elif args[0] == "pull":
 		client.send_message("/APS/" + myAPS_ID, "pulled")
@@ -35,18 +36,31 @@ def APS_play_handler(address, *args):
 	# TODO:
 	# if args contains 43, add "--aspect-ratio 43 "
 	# if args contains noloop, don't add "--loop "
-	if args[1] == "43":
-		os.system("vlc -I dummy --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
-	elif args[1] == "noloop":
-		os.system("vlc -I dummy --no-video-title ~/Videos/" + args[0])
+
+	#if not os.path.exists('~/Videos/' + args[0]):
+		#return
+
+	# try this and hope killall doesn't take too much time, preventing
+	vlc_running = os.system('pidof vlc')
+	if vlc_running != 256:
+		os.system('killall vlc')
+		time.sleep(0.1)
+
+
+
+	if len(args) > 1:
+		if args[1] == 43:
+			os.system("vlc -I http --http-password=22 --loop --no-video-title --aspect-ratio 4:3 ~/Videos/" + args[0])
+		elif args[1] == "noloop":
+			os.system("vlc -I http --http-password=22 --no-video-title ~/Videos/" + args[0])
 	else:
-		os.system("vlc -I dummy --loop --no-video-title ~/Videos/" + args[0])
+		os.system("vlc -I http --http-password=22 --loop --no-video-title ~/Videos/" + args[0])
 
 def APS_kill_handler(address, *args):
 
-	print("OSC APS Kill Message Received: " + str(args[0]))
-	client.send_message("/APS/kill", args[0])
-	os.system("pkill vlc" + args[0])
+	print("OSC APS Kill Message Received. ")
+	client.send_message("/APS/kill", myAPS_ID)
+	os.system("killall vlc")
 
 
 if __name__ == '__main__':
