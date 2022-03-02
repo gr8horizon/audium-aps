@@ -1,7 +1,8 @@
 [Unit]
 Description=Audium Projector System
 After=multi-user.target
-Requires=network.target
+After=network-online.target
+Wants=network-online.target
 
 [Service]
 Type=idle
