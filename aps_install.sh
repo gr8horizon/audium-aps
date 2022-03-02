@@ -11,5 +11,5 @@ sudo systemctl daemon-reload
 sudo systemctl enable aps.service
 sudo systemctl restart aps.service
 sudo systemctl status aps.service
- 
+
 echo Done.
