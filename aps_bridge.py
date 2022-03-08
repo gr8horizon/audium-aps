@@ -70,13 +70,15 @@ if __name__ == '__main__':
 	# localip = str(check_output(['hostname', '-I'], universal_newlines=True).strip('\n'))
 
 	localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
+	print(localip)
+	sys.stdout.flush()
 
 	while (localip[-3:-1] != "10"): # want 101:106  # FIXME (find a better way!)
 		print(localip + "!!!")
 		sys.stdout.flush()
 		time.sleep(5)
 		localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
-		
+
 	print(localip)
 	sys.stdout.flush()
 	myAPS_ID = socket.gethostname()
