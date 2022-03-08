@@ -65,12 +65,14 @@ def APS_kill_handler(address, *args):
 
 if __name__ == '__main__':
 
-	#localip = socket.gethostbyname_ex(socket.gethostname())
-	localip = str(check_output(['hostname', '-I'], universal_newlines=True).
-strip('\n'))
 	localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
-	print(localip)
-	sys.stdout.flush()
+	while (localip[0:3] != "192"):
+		time.sleep(5)
+		#localip = socket.gethostbyname_ex(socket.gethostname())
+		# localip = str(check_output(['hostname', '-I'], universal_newlines=True).strip('\n'))
+		localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
+		print(localip)
+		sys.stdout.flush()
 	myAPS_ID = socket.gethostname()
 
 	dispatcher = Dispatcher()
