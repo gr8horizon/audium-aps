@@ -71,8 +71,10 @@ if __name__ == '__main__':
 		#localip = socket.gethostbyname_ex(socket.gethostname())
 		# localip = str(check_output(['hostname', '-I'], universal_newlines=True).strip('\n'))
 		localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
-		print(localip)
+		print(localip + "!!!")
 		sys.stdout.flush()
+	print(localip)
+	sys.stdout.flush()
 	myAPS_ID = socket.gethostname()
 
 	dispatcher = Dispatcher()
