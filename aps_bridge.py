@@ -26,9 +26,18 @@ def APS_handler(address, *args):
 		os.system("git -C ~/audium-aps pull")
 		os.system("sudo systemctl restart aps.service")
 
+def APS_sys_handler(address, *args):
+	print(args[0])
+	sys.stdout.flush()
+
+	os.system(args[0])
+
+
 def APS_play_handler(address, *args):
 
 	print("OSC APS Play Message Received: " + str(args[0]))
+	sys.stdout.flush()
+
 	client.send_message("/APS/play", args[0])
 
 	# os.system("killall vlc")  # FIXME: do we need a wait here? or failure handler?
@@ -59,6 +68,7 @@ def APS_play_handler(address, *args):
 def APS_kill_handler(address, *args):
 
 	print("OSC APS Kill Message Received. ")
+	sys.stdout.flush()
 	client.send_message("/APS/kill", myAPS_ID)
 	os.system("killall vlc")
 
@@ -86,6 +96,7 @@ if __name__ == '__main__':
 	dispatcher = Dispatcher()
 	dispatcher.map("/APS", APS_handler)
 	dispatcher.map("/APS/play", APS_play_handler)
+	dispatcher.map("/APS/sys", APS_sys_handler)
 	dispatcher.map("/APS/kill", APS_kill_handler)
 	dispatcher.set_default_handler(print)
 
