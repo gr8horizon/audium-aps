@@ -66,14 +66,17 @@ def APS_kill_handler(address, *args):
 if __name__ == '__main__':
 
 	# time.sleep(10) # because some Pi's need time to resolve their Manual IP assignment
+	#localip = socket.gethostbyname_ex(socket.gethostname())
+	# localip = str(check_output(['hostname', '-I'], universal_newlines=True).strip('\n'))
+
 	localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
-	while (localip[-3:-1] != "10"):
-		time.sleep(5)
-		#localip = socket.gethostbyname_ex(socket.gethostname())
-		# localip = str(check_output(['hostname', '-I'], universal_newlines=True).strip('\n'))
-		localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
+
+	while (localip[-3:-1] != "10"): # want 101:106  # FIXME (find a better way!)
 		print(localip + "!!!")
 		sys.stdout.flush()
+		time.sleep(5)
+		localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
+		
 	print(localip)
 	sys.stdout.flush()
 	myAPS_ID = socket.gethostname()
