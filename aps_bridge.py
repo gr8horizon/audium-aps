@@ -70,6 +70,7 @@ if __name__ == '__main__':
 strip('\n'))
 	localip = str(check_output(['hostname', '-I'])).split(' ')[0].replace("b'","")
 	print(localip)
+	sys.stdout.flush()
 	myAPS_ID = socket.gethostname()
 
 	dispatcher = Dispatcher()
