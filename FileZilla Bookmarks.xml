@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FileZilla3 version="3.60.1" platform="mac">
+	<Servers>
+		<Folder expanded="1">Projectors<Server>
+				<Host>192.168.42.101</Host>
+				<Port>22</Port>
+				<Protocol>1</Protocol>
+				<Type>0</Type>
+				<User>pi</User>
+				<Pass encoding="base64">MjI=</Pass>
+				<Logontype>1</Logontype>
+				<EncodingType>Auto</EncodingType>
+				<BypassProxy>0</BypassProxy>
+				<Name>APS-1</Name>
+				<SyncBrowsing>0</SyncBrowsing>
+				<DirectoryComparison>0</DirectoryComparison>
+			</Server>
+			<Server>
+				<Host>192.168.42.102</Host>
+				<Port>22</Port>
+				<Protocol>1</Protocol>
+				<Type>0</Type>
+				<User>pi</User>
+				<Pass encoding="base64">MjI=</Pass>
+				<Logontype>1</Logontype>
+				<EncodingType>Auto</EncodingType>
+				<BypassProxy>0</BypassProxy>
+				<Name>APS-2</Name>
+				<SyncBrowsing>0</SyncBrowsing>
+				<DirectoryComparison>0</DirectoryComparison>
+			</Server>
+			<Server>
+				<Host>192.168.42.103</Host>
+				<Port>22</Port>
+				<Protocol>1</Protocol>
+				<Type>0</Type>
+				<User>pi</User>
+				<Pass encoding="base64">MjI=</Pass>
+				<Logontype>1</Logontype>
+				<EncodingType>Auto</EncodingType>
+				<BypassProxy>0</BypassProxy>
+				<Name>APS-3</Name>
+				<SyncBrowsing>0</SyncBrowsing>
+				<DirectoryComparison>0</DirectoryComparison>
+			</Server>
+			<Server>
+				<Host>192.168.42.104</Host>
+				<Port>22</Port>
+				<Protocol>1</Protocol>
+				<Type>0</Type>
+				<User>pi</User>
+				<Pass encoding="base64">MjI=</Pass>
+				<Logontype>1</Logontype>
+				<EncodingType>Auto</EncodingType>
+				<BypassProxy>0</BypassProxy>
+				<Name>APS-4</Name>
+				<SyncBrowsing>0</SyncBrowsing>
+				<DirectoryComparison>0</DirectoryComparison>
+			</Server>
+			<Server>
+				<Host>192.168.42.105</Host>
+				<Port>22</Port>
+				<Protocol>1</Protocol>
+				<Type>0</Type>
+				<User>pi</User>
+				<Pass encoding="base64">MjI=</Pass>
+				<Logontype>1</Logontype>
+				<EncodingType>Auto</EncodingType>
+				<BypassProxy>0</BypassProxy>
+				<Name>APS-5</Name>
+				<SyncBrowsing>0</SyncBrowsing>
+				<DirectoryComparison>0</DirectoryComparison>
+			</Server>
+			<Server>
+				<Host>192.168.42.106</Host>
+				<Port>22</Port>
+				<Protocol>1</Protocol>
+				<Type>0</Type>
+				<User>pi</User>
+				<Pass encoding="base64">MjI=</Pass>
+				<Logontype>1</Logontype>
+				<EncodingType>Auto</EncodingType>
+				<BypassProxy>0</BypassProxy>
+				<Name>APS-6</Name>
+				<SyncBrowsing>0</SyncBrowsing>
+				<DirectoryComparison>0</DirectoryComparison>
+			</Server>
+		</Folder>
+	</Servers>
+</FileZilla3>
